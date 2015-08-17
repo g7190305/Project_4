@@ -1,0 +1,12 @@
+/Users/g7190305/AndroidBootCamp/Project_4/app/build/intermediates/classes/debug
+/Users/g7190305/AndroidBootCamp/Project_4/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-2b15b7ca4233ce23b74df22cde69b4efcbc549cd.jar
+/Users/g7190305/AndroidBootCamp/Project_4/app/build/intermediates/pre-dexed/debug/codepath-utils-acf9ac9109e13f4cc217fb23ea410e791170abe0.jar
+/Users/g7190305/AndroidBootCamp/Project_4/app/build/intermediates/pre-dexed/debug/classes-b242be7151dfe58a0411120e157b831c569f59d5.jar
+/Users/g7190305/AndroidBootCamp/Project_4/app/build/intermediates/pre-dexed/debug/codepath-oauth-0.4.1-f5f939a5935f10a341456041f930b12f62720db4.jar
+/Users/g7190305/AndroidBootCamp/Project_4/app/build/intermediates/pre-dexed/debug/activeandroid-3.1.0-SNAPSHOT-9850fe6d1147122fbb06e93dc607ba92a56cfc6d.jar
+/Users/g7190305/AndroidBootCamp/Project_4/app/build/intermediates/pre-dexed/debug/scribe-codepath-0.0.3-89287c1d566c9bafe465cb569a229e1ea8ddc9e4.jar
+/Users/g7190305/AndroidBootCamp/Project_4/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-e1c94ecd153a258237775809605c8c873fd2a057.jar
+/Users/g7190305/AndroidBootCamp/Project_4/app/build/intermediates/pre-dexed/debug/picasso-2.4.0-67aa7b4216b6daa52babdeb16323518f3f806ad5.jar
+/Users/g7190305/AndroidBootCamp/Project_4/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-60fc555062770b99670d5494633e7ec93dff3c34.jar
+/Users/g7190305/AndroidBootCamp/Project_4/app/build/intermediates/pre-dexed/debug/classes-aaa8bbf5a587b8a8dadcab5d94d21897e2a92d2f.jar
+/Users/g7190305/AndroidBootCamp/Project_4/app/build/intermediates/pre-dexed/debug/classes-635e5a6fe47a8fec94cf4e94873b86b86049cf3f.jar

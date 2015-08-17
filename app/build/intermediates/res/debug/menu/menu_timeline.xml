@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codepath.apps.MySimpleTweets.TimelineActivity">
+    <item
+        android:id="@+id/mi_profile"
+        android:orderInCategory="100"
+        android:title="profile"
+        android:icon="@drawable/ic_profile"
+        android:onClick="onProfileView"
+        app:showAsAction="ifRoom" />
+
+</menu>
+<!-- From: file:/Users/g7190305/AndroidBootCamp/Project_4/app/src/main/res/menu/menu_timeline.xml -->
