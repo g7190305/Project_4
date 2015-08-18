@@ -1684,6 +1684,7 @@ containing a value of this type.
         public static final int llCounts=0x7f090050;
         public static final int lvTweets=0x7f09005f;
         public static final int media_actions=0x7f090066;
+        public static final int mi_compose=0x7f090073;
         public static final int mi_profile=0x7f090072;
         public static final int middle=0x7f090015;
         public static final int multiply=0x7f09001e;

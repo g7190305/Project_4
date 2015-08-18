@@ -7,7 +7,7 @@ import com.codepath.apps.MySimpleTweets.TwitterApplication;
 import com.codepath.apps.MySimpleTweets.TwitterClient;
 import com.codepath.apps.MySimpleTweets.models.Tweet;
 
-import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * Created by g7190305 on 2015/8/15.
@@ -27,7 +27,7 @@ public class MentionTimelineFragment extends TweetsListFragment {
         populateTimeline(getSince_id());
     }
 
-    private void populateTimeline(long since_id) {
+    public void populateTimeline(long since_id) {
         // client.getHomeTimeline();
 
         client.getMentionTimeline(since_id, new com.loopj.android.http.JsonHttpResponseHandler() {
@@ -41,7 +41,7 @@ public class MentionTimelineFragment extends TweetsListFragment {
             }
 
             @Override
-            public void onFailure(int statusCode, org.apache.http.Header[] headers, Throwable throwable, JSONArray Response) {
+            public void onFailure(int statusCode, org.apache.http.Header[] headers, Throwable throwable, JSONObject Response) {
                 //super.onFailure(statusCode, headers, throwable, errorResponse);
                 Log.d("DEBUG", Response.toString());
             }

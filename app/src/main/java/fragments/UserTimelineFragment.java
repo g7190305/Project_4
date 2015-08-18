@@ -32,7 +32,7 @@ public class UserTimelineFragment extends TweetsListFragment {
         return  userFragment;
     }
 
-    private void populateTimeline(long since_id) {
+    public void populateTimeline(long since_id) {
         // client.getHomeTimeline();
         String screenName = getArguments().getString("screen_name", null);
         // String screenName = "g7190305";

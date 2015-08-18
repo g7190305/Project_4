@@ -1,14 +1,8 @@
 package fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
-import com.codepath.apps.MySimpleTweets.R;
-import com.codepath.apps.MySimpleTweets.TweetComposeActivity;
 import com.codepath.apps.MySimpleTweets.TwitterApplication;
 import com.codepath.apps.MySimpleTweets.TwitterClient;
 import com.codepath.apps.MySimpleTweets.models.Tweet;
@@ -38,7 +32,7 @@ public class HomeTimelineFragment extends TweetsListFragment {
         populateTimeline(getSince_id());
     }
 
-    private void populateTimeline(long since_id) {
+    public void populateTimeline(long since_id) {
         // client.getHomeTimeline();
 
         client.getHomeTimeline(since_id, new com.loopj.android.http.JsonHttpResponseHandler() {
@@ -59,42 +53,42 @@ public class HomeTimelineFragment extends TweetsListFragment {
         });
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    // @Override
+    // public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_timeline, menu);
-        return;
-    }
+        // inflater.inflate(R.menu.menu_timeline, menu);
+    //     return;
+    // }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+    // @Override
+    // public boolean onOptionsItemSelected(MenuItem item) {
+    //     int id = item.getItemId();
 
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            // Intent i = new Intent(TimelineActivity.this, TweetComposeActivity.class);
-            Intent i = new Intent(getActivity(), TweetComposeActivity.class);
-            i.putExtra(POSTED_STATUS, "");
-            startActivityForResult(i, TWEET_ACTIVATE_ID);
-            return true;
-        }
+    //     if (id == R.id.mi_compose) {
+    //         // Intent i = new Intent(TimelineActivity.this, TweetComposeActivity.class);
+    //         Intent i = new Intent(getActivity(), TweetComposeActivity.class);
+    //         i.putExtra(POSTED_STATUS, "");
+    //         startActivityForResult(i, TWEET_ACTIVATE_ID);
+    //         return true;
+    //     }
 
-        return super.onOptionsItemSelected(item);
-    }
+    //     return super.onOptionsItemSelected(item);
+    // }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    // @Override
+    // public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // super.onActivityResult(requestCode, resultCode, data);
 
-        if ( resultCode == getActivity().RESULT_OK && requestCode == TWEET_ACTIVATE_ID ) {
-            Tweet tweet = (Tweet) data.getSerializableExtra(POSTED_STATUS);
-            // aTweets.add(tweet);
-            insert(tweet, 0);
+    //     if ( resultCode == getActivity().RESULT_OK && requestCode == TWEET_ACTIVATE_ID ) {
+    //         Tweet tweet = (Tweet) data.getSerializableExtra(POSTED_STATUS);
+    //         // aTweets.add(tweet);
+    //         insert(tweet, 0);
 
             // Log.d("DEBUG", data.toString());
             // setupInfo = (SetupInfo) data.getSerializableExtra("setupInfo");
             // Log.i("DEBUG", setupInfo.toString());
-        }
-    }
+    //     }
+    // }
 }

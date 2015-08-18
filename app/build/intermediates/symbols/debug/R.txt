@@ -481,6 +481,7 @@ int id list_item 0x7f09002a
 int id llCounts 0x7f090050
 int id lvTweets 0x7f09005f
 int id media_actions 0x7f090066
+int id mi_compose 0x7f090073
 int id mi_profile 0x7f090072
 int id middle 0x7f090015
 int id multiply 0x7f09001e

@@ -10,4 +10,11 @@
         android:onClick="onProfileView"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/mi_compose"
+        android:orderInCategory="101"
+        android:title="compose"
+        android:icon="@mipmap/ic_twitter"
+        app:showAsAction="ifRoom" />
+
 </menu>

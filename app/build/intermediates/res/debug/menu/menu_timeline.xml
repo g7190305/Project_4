@@ -10,5 +10,12 @@
         android:onClick="onProfileView"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/mi_compose"
+        android:orderInCategory="101"
+        android:title="compose"
+        android:icon="@mipmap/ic_twitter"
+        app:showAsAction="ifRoom" />
+
 </menu>
 <!-- From: file:/Users/g7190305/AndroidBootCamp/Project_4/app/src/main/res/menu/menu_timeline.xml -->

@@ -103,11 +103,11 @@ public class TwitterClient extends OAuthBaseClient {
 		RequestParams params = new RequestParams();
 		params.put("count",COUNT);
 
-		// if (id > 1) {
-		// 	params.put("max_id", id);
-		// } else {
-		// 	params.put("since_id", 1);
-		// }
+		if (id > 1) {
+			params.put("max_id", id);
+		} else {
+			params.put("since_id", 1);
+		}
 
 		try {
 			getClient().get(apiUrl, params, handler);
