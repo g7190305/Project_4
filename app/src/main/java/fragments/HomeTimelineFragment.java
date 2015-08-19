@@ -22,13 +22,7 @@ public class HomeTimelineFragment extends TweetsListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // ((TimelineActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
-        // ((TimelineActivity)getActivity()).getSupportActionBar().setLogo(R.drawable.ic_launcher);
-        // ((TimelineActivity)getActivity()).getSupportActionBar().setDisplayUseLogoEnabled(true);
-
         client = TwitterApplication.getRestClient();
-
         populateTimeline(getSince_id());
     }
 
@@ -42,7 +36,6 @@ public class HomeTimelineFragment extends TweetsListFragment {
                 // super.onSuccess(statusCode, headers, jsonArray);
                 Log.d("DEBUG", "Twitter Client get Success");
                 addAll(Tweet.fromJSONArray(jsonArray));
-                // swipeContainer.setRefreshing(false);
             }
 
             @Override

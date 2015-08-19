@@ -1,6 +1,7 @@
 package com.codepath.apps.MySimpleTweets;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ import java.util.Locale;
 public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
 
     private long since_id = 1;
+    // private static final int SCREEN_NAME_KEY=10;
 
     public long getSince_id() {
         return since_id;
@@ -46,7 +48,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_tweet, parent, false);
         }
         // 3. Find the subview to fill with data in the template
-        ImageView ivProfileImage = (ImageView) convertView.findViewById(R.id.ivProfileImage);
+        final ImageView ivProfileImage = (ImageView) convertView.findViewById(R.id.ivProfileImage);
         TextView tvUserName = (TextView) convertView.findViewById(R.id.tvUserNmae);
         TextView tvBody = (TextView) convertView.findViewById(R.id.tvBody);
         TextView tvCreateAt = (TextView) convertView.findViewById(R.id.tvCreateAt);
@@ -57,10 +59,22 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         tvCreateAt.setText(getRelativeTimeAgo(tweet.getCreateAt()));
 
         ivProfileImage.setImageResource(android.R.color.transparent); // clear out the old image for a recycled view
+        ivProfileImage.setTag(R.id.screen_name_tag, tweet.getUser().getScreenName());
 
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).resize(50,50).into(ivProfileImage);
 
         setSince_id(tweet.getUid());
+
+        ivProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), ProfileActivity.class);
+                i.putExtra("screen_name", (String) ivProfileImage.getTag(R.id.screen_name_tag));
+
+                getContext().startActivity(i);
+            }
+        });
+
 
         return convertView;
 

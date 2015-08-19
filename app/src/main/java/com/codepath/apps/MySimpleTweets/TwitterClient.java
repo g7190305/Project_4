@@ -73,6 +73,19 @@ public class TwitterClient extends OAuthBaseClient {
 		}
 	}
 
+	public void getUsersLookup( String screen_name, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("users/lookup.json");
+
+		RequestParams params = new RequestParams();
+		params.put("screen_name", screen_name);
+
+		try {
+			getClient().get(apiUrl, params, handler);
+		} catch (OAuthException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void getVerifyCredentials( AsyncHttpResponseHandler handler) {
 		String apiUrl = getApiUrl("account/verify_credentials.json");
 

@@ -14,6 +14,8 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
 
 import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import fragments.UserTimelineFragment;
@@ -29,30 +31,58 @@ public class ProfileActivity extends ActionBarActivity {
         setContentView(R.layout.activity_profile);
 
         client = TwitterApplication.getRestClient();
-        client.getVerifyCredentials( new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject jsonObject) {
-                user = User.fromJSON(jsonObject);
-
-                getSupportActionBar().setTitle("@" + user.getScreenName());
-                populateProfileHeader( user );
-
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                Log.d("DEBUG", responseString);
-            }
-        });
-
-
         String screenName = getIntent().getStringExtra("screen_name");
+
+        Log.d("DEBUG", "screen_name:" + screenName);
+
+        if (screenName == null) {
+
+            client.getVerifyCredentials(new JsonHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject jsonObject) {
+                    user = User.fromJSON(jsonObject);
+
+                    getSupportActionBar().setTitle("@" + user.getScreenName());
+                    populateProfileHeader(user);
+
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                    super.onFailure(statusCode, headers, responseString, throwable);
+                    Log.d("DEBUG", responseString);
+                }
+            });
+        } else {
+            client.getUsersLookup(screenName, new JsonHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONArray jsonArray) {
+                    Log.d("DEBUG", "jsonObject:" + jsonArray);
+                    try {
+                        user = User.fromJSON(jsonArray.getJSONObject(0));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    getSupportActionBar().setTitle("@" + user.getScreenName());
+                    populateProfileHeader(user);
+
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                    super.onFailure(statusCode, headers, responseString, throwable);
+                    Log.d("DEBUG", responseString);
+                }
+            });
+        }
+
+
+        // String screenName = getIntent().getStringExtra("screen_name");
         if ( savedInstanceState == null) {
             UserTimelineFragment fragmentUserTimeline = UserTimelineFragment.newInstance(screenName);
 
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flContainer,fragmentUserTimeline);
+            ft.replace(R.id.flContainer, fragmentUserTimeline);
             ft.commit();
         }
     }
